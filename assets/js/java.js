@@ -15,7 +15,7 @@ $(document).ready(function () {
     function currentWeather(city) {
 
         $.ajax({
-            method: "GET"
+            method: "GET",
             url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
         }).then(function (data) {
             console.log(data);
@@ -25,7 +25,7 @@ $(document).ready(function () {
     function forecast(city) {
 
         $.ajax({
-            method: "GET"
+            method: "GET",
             url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
         }).then(function (data) {
             console.log(data);

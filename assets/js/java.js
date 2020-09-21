@@ -9,6 +9,7 @@ $(document).ready(function () {
         console.log(cityInput);
         currentWeather(cityInput);
         forecast(cityInput);
+        uvIndex(cityInput);
 
         var recentSrch = $("<h2>");
         recentSrch.text(cityInput);
@@ -37,5 +38,15 @@ $(document).ready(function () {
             console.log(data);
         })
     }
+
+    function uv(city) {
+        $.ajax({
+            method: "GET",
+            url: "https://api.openweathermap.org/data/2.5/uvi?" + city + "&lat=" + latitude + "&lon=" + longitude"&lon=&appid=e4a0807b709fd21166a9113bc8472380&units=imperial";
+        }).then(function (uvIndex) {
+            console.log(uvIndex);
+        })
+    }
+    
 
 })

@@ -10,6 +10,8 @@ $(document).ready(function () {
         currentWeather(cityInput);
         forecast(cityInput);
 
+        var recentSrch = $("<button>");
+        $("#recentSearches").append(recentSrch)
     })
 
     function currentWeather(city) {

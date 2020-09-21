@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    var cities = [];
+    var citiesDiv = document.getElementById("searched-cities");
+    init();
+
+    function init() {
+        var savedCities = JSON.parse(localStorage.getItem("cities"));
+
+        if (savedCities !== null) {
+            cities = savedCities
+        }
+    }
+
+    function storingCities () {
+        localStorage.setItem("cities", JSON.stringify(cities));
+    }
 
     $("#weather-btn").on("click", function (event) {
         event.preventDefault();

@@ -37,8 +37,9 @@ $(document).ready(function () {
     $("#recentSearches").on("click", function (event) {
         event.preventDefault();
         console.log("click");
-        var cityInput = $(this).siblings();
+        var cityInput = ($(this).siblings());
         console.log(cityInput);
+        console.log($(this).siblings())
     })
 })
 
@@ -56,7 +57,8 @@ function currentWeather(city) {
 
         console.log("Wind Speed: " + response.wind.speed);
         console.log("Humidity: " + response.main.humidity);
-        console.log("Temperature (F): " + tempF);
+        console.log("Temperature (F): " + response.main.temp);
+
     });
 };
 

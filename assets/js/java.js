@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     // var cities = [];
     // var citiesDiv = document.getElementById("searched-cities");
     // init();
@@ -34,13 +35,10 @@ $(document).ready(function () {
 
 
     });
-    $("#recentSearches").on("click", function (event) {
-        event.preventDefault();
-        console.log("click");
-        var cityInput = ($(this).siblings());
-        console.log(cityInput);
-        console.log($(this).siblings())
-    })
+       $("#recentSearches").on("click", function (event) {
+               var city = event.target.textContent
+               currentWeather(city)
+           })
 })
 
 function currentWeather(city) {
@@ -51,6 +49,7 @@ function currentWeather(city) {
     }).then(function (response) {
         console.log(response);
         
+        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
         $(".wind").text("Wind Speed: " + response.wind.speed);
         $(".temp").text("Temperature: " + response.main.temp);
         $(".humidity").text("Humidity: " + response.main.humidity);
@@ -58,6 +57,7 @@ function currentWeather(city) {
         console.log("Wind Speed: " + response.wind.speed);
         console.log("Humidity: " + response.main.humidity);
         console.log("Temperature (F): " + response.main.temp);
+        console.log("<h1>" + response.name + " Weather Details</h1>");
 
     });
 };

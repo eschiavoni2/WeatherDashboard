@@ -29,8 +29,9 @@ $(document).ready(function () {
 
         $("#recentSearches").on("click", function (event) {
             event.preventDefault();
+            console.log("click");
 
-            var recentSrch = $("<h2>");
+            var recentSrch = $("<button>");
             recentSrch.text(cityInput);
             recentSrch.attr("value", cityInput);
             recentSrch.attr("class", "recentInput");

@@ -47,18 +47,17 @@ function currentWeather(city) {
     $.ajax({
         method: "GET",
         url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
-    }).then(function (data) {
-        console.log(data);
-    })
-        .then(function (response) {
-            $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-            $(".wind").text("Wind Speed: " + response.wind.speed);
-            $(".humidity").text("Humidity: " + response.main.humidity);
+    }).then(function (response) {
+        console.log(response);
+        
+        $(".wind").text("Wind Speed: " + response.wind.speed);
+        $(".temp").text("Temperature: " + response.main.temp);
+        $(".humidity").text("Humidity: " + response.main.humidity);
 
-            console.log("Wind Speed: " + response.wind.speed);
-            console.log("Humidity: " + response.main.humidity);
-            console.log("Temperature (F): " + tempF);
-        });
+        console.log("Wind Speed: " + response.wind.speed);
+        console.log("Humidity: " + response.main.humidity);
+        console.log("Temperature (F): " + tempF);
+    });
 };
 
 function forecast(city) {

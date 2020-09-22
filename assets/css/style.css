@@ -7,3 +7,8 @@ aside {
     font-family: Arial, Helvetica, sans-serif;
     background-color: darkgray;
 }
+.fa .fa-search {
+  width: 50%;
+  margin: 50px auto;
+    }
+}

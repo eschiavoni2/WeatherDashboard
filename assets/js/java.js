@@ -27,18 +27,21 @@ $(document).ready(function () {
         forecast(cityInput);
         // uvIndex(cityInput);
 
-        var recentSrch = $("<h2>");
-        recentSrch.text(cityInput);
-        recentSrch.attr("value", cityInput);
-        recentSrch.attr("class", "recentInput");
-        $("#recentSearches").append(recentSrch);
+        $("#recentSearches").on("click", function (event) {
+            event.preventDefault();
 
+            var recentSrch = $("<h2>");
+            recentSrch.text(cityInput);
+            recentSrch.attr("value", cityInput);
+            recentSrch.attr("class", "recentInput");
+            $("#recentSearches").append(recentSrch);
+        });
 
     });
-       $("#recentSearches").on("click", function (event) {
-               var city = event.target.textContent
-               currentWeather(city)
-           })
+    $("#recentSearches").on("click", function (event) {
+        var city = event.target.textContent
+        currentWeather(city)
+    })
 })
 
 function currentWeather(city) {
@@ -79,13 +82,13 @@ function forecast(city) {
 }
 
 {
-//     "lat": 38.75,
-//     "lon": 40.25,
-//     "date_iso": "2017-06-23T12:00:00Z",
-//     "date": 1498219200,
-//     "value": 10.16
-//   }
-         
+    //     "lat": 38.75,
+    //     "lon": 40.25,
+    //     "date_iso": "2017-06-23T12:00:00Z",
+    //     "date": 1498219200,
+    //     "value": 10.16
+    //   }
+
     function uv(latitude, longitude) {
         $.ajax({
             method: "GET",
@@ -95,6 +98,6 @@ function forecast(city) {
             $(".uv").text("UV Index: " + uvIndex.value);
         })
     }
-        
+
 
 };

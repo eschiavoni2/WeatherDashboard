@@ -1,42 +1,57 @@
 $(document).ready(function () {
 
-    // var cities = [];
-    // var citiesDiv = document.getElementById("searched-cities");
-    // init();
+    var cities = [];
+    var citiesDiv = document.getElementById("searched-cities");
+    init();
+    displayCities();
 
-    // function init() {
-    //     var savedCities = JSON.parse(localStorage.getItem("cities"));
+    function init() {
+        var savedCities = JSON.parse(localStorage.getItem("cities"));
 
-    //     if (savedCities !== null) {
-    //         cities = savedCities
-    //     }
-    // }
+        if (savedCities !== null) {
+            cities = savedCities
+        }
+    }
 
-    // function storingCities () {
-    //     localStorage.setItem("cities", JSON.stringify(cities));
-    // }
 
-    $("#weather-btn").on("click", function (event) {
+
+    function displayCities() {
+        $('#recentSearches').html('');
+        for (let index = 0; index < cities.length; index++) {
+            const city = cities[index];
+            $("#recentSearches").append('<li><button>'+city+'</button></li>');
+        }
+        // use the cities array to list out all of the cities in the html page
+    }
+
+    // var fruits = ['apple', 'banana', 'pear']
+    // fruits.indexOf("apple") => 0
+    // fruits.indexOf('strawberry') => -1
+
+     $("#weather-btn").on("click", function (event) {
         event.preventDefault();
 
-        console.log("click");
+    //     console.log("click");
 
         var cityInput = $("#weather-input").val().trim();
         console.log(cityInput);
+
+        if (cities.indexOf(cityInput) === -1) {
+        cities.push(cityInput);
+
+        }
+
+        localStorage.setItem("cities", JSON.stringify(cities));
+        displayCities();
+        // push to the cities array
+        // set the cities value in localStorage to the cities array
+        // call displayCities()
+        
+
+
         currentWeather(cityInput);
         forecast(cityInput);
-        // uvIndex(cityInput);
-
-        $("#recentSearches").on("click", function (event) {
-            event.preventDefault();
-            console.log("click");
-
-            var recentSrch = $("<button>");
-            recentSrch.text(cityInput);
-            recentSrch.attr("value", cityInput);
-            recentSrch.attr("class", "recentInput");
-            $("#recentSearches").append(recentSrch);
-        });
+        //uvIndex(cityInput);
 
     });
     $("#recentSearches").on("click", function (event) {
@@ -79,16 +94,13 @@ function forecast(city) {
         url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
     }).then(function (forecastData) {
         console.log(forecastData);
+       for (let index = 0; index < forecastData.list.length; index+=8) {
+           console.log(forecastData.list[index].main.temp);
+            
+       }
     })
 }
 
-{
-    //     "lat": 38.75,
-    //     "lon": 40.25,
-    //     "date_iso": "2017-06-23T12:00:00Z",
-    //     "date": 1498219200,
-    //     "value": 10.16
-    //   }
 
     function uv(latitude, longitude) {
         $.ajax({
@@ -99,6 +111,3 @@ function forecast(city) {
             $(".uv").text("UV Index: " + uvIndex.value);
         })
     }
-
-
-};

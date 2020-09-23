@@ -3,7 +3,7 @@ $(document).ready(function() {
 	// variable for my cities with an empty array
 	var cities = [];
 	// variable for lastcitysearched with an empty string
-	var lastCitySearched = "";
+	// var lastCitySearched = "";
 	// call functions 
 	init();
 	displayCities();

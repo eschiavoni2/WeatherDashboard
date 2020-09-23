@@ -66,22 +66,28 @@ $(document).ready(function() {
 			currentWeather(cityInput);
 			forecast(cityInput);
 		});
-
+        // click function for recent searches (click a recent one to see weather)
 		$("#recentSearches").on("click", function(event) {
-			var city = event.target.textContent;
-			console.log(city);
+            // returning the DOM element = city
+            var city = event.target.textContent;
+            // console loggging city
+            console.log(city);
+            // saving last searched in local storage
             localStorage.setItem("lastCitySearched", city);
+            // saving last five in love storage
             localStorage.setItem("lastFive", city);
+            // calling current weather function with variable city
 			currentWeather(city);
 		});
 	}
 });
-
+// current weather function
 function currentWeather(city) {
-
+    // ajax method, api with city and imperial units 
 	$.ajax({
 		method: "GET",
-		url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
+        
 	}).then(function(response) {
 		console.log(response);
 

@@ -21,14 +21,35 @@ transition: all .3s ease-in-out;
 border: black solid thin;
 }
 
-/* .uv {
+.uv {
 
 }
 
-.favorable
-.moderate
-.severe */
-
-#bgC {
-  border: thin solid black;
+.rowCW {
+  border: thin dotted black;
+  margin-left: 10rem;
+  padding-bottom: 25px;
 }
+
+.row5F {
+  margin-top: 3rem;
+  margin-left: 11rem;
+  justify-content: center;
+}
+
+.asideB {
+  background-color: lightgray;
+  margin: 0px 5px 5px 5px;
+  border: thin black dotted;
+}
+
+#myBtn {
+  border-radius: 5px;
+  padding: 15px 60px;
+  display: inline;
+  justify-content: left;
+  flex-wrap: wrap;
+  float: left
+  background-color: white;
+}
+

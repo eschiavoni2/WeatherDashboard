@@ -7,8 +7,24 @@ aside {
     font-family: Arial, Helvetica, sans-serif;
     background-color: darkgray;
 }
-.fa .fa-search {
-  width: 50%;
-  margin: 50px auto;
-    }
+
+#weather-btn {
+  border: black solid thin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+      
+#weather-btn i:hover {
+font-size: 20px;
+transition: all .3s ease-in-out;
+border: black solid thin;
+}
+
+.uv {
+
+}
+
+.favorable
+.moderate
+.severe

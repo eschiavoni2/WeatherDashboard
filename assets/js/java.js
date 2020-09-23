@@ -7,6 +7,8 @@ $(document).ready(function () {
     init();
     displayCities();
     currentWeather();
+    currentWeather(localStorage.getItem("lastCitySearched"));
+
 
     function init() {
         var savedCities = JSON.parse(localStorage.getItem("cities")) || [];
@@ -36,12 +38,14 @@ $(document).ready(function () {
 
             localStorage.setItem("cities", JSON.stringify(cities));
             displayCities();
+            currentWeather();
 
             currentWeather(cityInput);
             forecast(cityInput);
         });
         $("#recentSearches").on("click", function (event) {
             var city = event.target.textContent
+            localStorage.setItem("lastCitySearched", city);
             currentWeather(city)
         })
     }
@@ -49,6 +53,11 @@ $(document).ready(function () {
 
 function currentWeather(city) {
 
+    localStorage.setItem("lastCitySearched", city);
+    if (lastCitySearched !== null) {
+        Currentweather = lastCitySearched 
+    }
+       
     $.ajax({
         method: "GET",
         url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
@@ -71,7 +80,6 @@ function currentWeather(city) {
         console.log("<h1>" + response.name + " Weather Details</h1>");
 
         uv(lat, long);
-        displayCities();
     });
 };
 

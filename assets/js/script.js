@@ -3,7 +3,7 @@ $(document).ready(function() {
 	// variable for my cities with an empty array
 	var cities = [];
 	// variable for lastcitysearched with an empty string
-	// var lastCitySearched = "";
+	var lastCitySearched = "";
 	// call functions 
 	init();
 	displayCities();
@@ -69,7 +69,7 @@ $(document).ready(function() {
 
 function currentWeather(city) {
 
-	localStorage.setItem("lastCitySearched", city);
+	// localStorage.setItem("lastCitySearched", city);
 	// if (lastCitySearched !== null) {
 	//     Currentweather = lastCitySearched 
 	// }
@@ -95,7 +95,9 @@ function currentWeather(city) {
 		console.log("Temperature (F): " + response.main.temp);
 		console.log("<h1>" + response.name + " Weather Details</h1>");
 
-		uv(lat, long);
+        uv(lat, long);
+        localStorage.setItem("lastCitySearched", city);
+
 	});
 }
 

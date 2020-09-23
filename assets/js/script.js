@@ -47,7 +47,13 @@ $(document).ready(function() {
 				cities.push(cityInput);
 				// console log cities
 				console.log(cities);
-			}
+            }
+            if (lastFive.indexOf(cityInput) === -1) {
+				// push the cities to the screen
+				lastFive.push(cityInput);
+				// console log cities
+                console.log(lastFive);
+            }
 			// saving cities to local storage 
 			localStorage.setItem("cities", JSON.stringify(cities));
 			// saving lastcitysearched to local storage 

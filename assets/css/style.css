@@ -21,11 +21,14 @@ transition: all .3s ease-in-out;
 border: black solid thin;
 }
 
-.uv {
+/* .uv {
 
 }
 
 .favorable
 .moderate
-.severe
+.severe */
 
+#bgC {
+  border: thin solid black;
+}

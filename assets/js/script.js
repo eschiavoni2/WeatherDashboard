@@ -31,7 +31,7 @@ $(document).ready(function() {
 			// grabbing city from array to put on page
 			var city = cities[index];
 			// appending city button in the recent searches
-			$("#recentSearches").append('<li><button>' + city + '</button></li>');
+			$("#recentSearches").append('<p><ul><button id="myBtn">' + city + '</button></ul></p>');
 		}
 		// weather button on click event
 		$("#weather-btn").on("click", function(event) {
@@ -48,10 +48,11 @@ $(document).ready(function() {
 				// console log cities
 				console.log(cities);
             }
+            // conditional - if =-1 don't push
             if (lastFive.indexOf(cityInput) === -1) {
-				// push the cities to the screen
+				// push the lastfive to the screen
 				lastFive.push(cityInput);
-				// console log cities
+				// console log lastfive
                 console.log(lastFive);
             }
 			// saving cities to local storage 
@@ -122,6 +123,8 @@ function forecast(city) {
         var cardFS = $("<div class='col-md-2 card bg-primary text-white'>");
         var icon = $("<img>").attr("src", "http://openweathermap.org/img/w/" + forecastData.list[index].weather[0].icon + ".png");
         cardFS.append(icon);
+        var date = forecastData.list[index].dt_txt
+        cardFS.append("<p>Date: "+ date + "</p>");
         var temperature = forecastData.list[index].main.temp_max
         cardFS.append("<p>Temp: "+ temperature + "</p>");
         var humidity = forecastData.list[index].main.humidity

@@ -6,17 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <title>Weather</title>
 </head>
@@ -32,7 +27,7 @@
                             <input type="text" class="form-control" id="weather-input" aria-describedby="cityWeather"
                                 placeholder="Enter city">
                             <div class="input-group-append">
-                                <button class="btnbtn-secondary" type="button" id="weather-btn">
+                                <button class="btn btn-primary" type="button" id="weather-btn">
                                     <i class="fa fa-search-plus" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -57,12 +52,7 @@
             </div>
         </div>
         <h2>Five Day Forecast:</h2>
-        <div class="row mt-1">
-            <div id="sec1" class="col-md-2">Section1</div>
-            <div id="sec2" class="col-md-2">Section2</div>
-            <div id="sec3" class="col-md-2">Section3</div>
-            <div id="sec4" class="col-md-2">Section4</div>
-            <div id="sec5" class="col-md-2">Section5</div>
+        <div class="row mt-1" id="forecast">
         </div>
     </div>
     <script src="assets/js/script.js"></script>

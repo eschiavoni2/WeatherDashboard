@@ -69,11 +69,6 @@ $(document).ready(function() {
 
 function currentWeather(city) {
 
-	// localStorage.setItem("lastCitySearched", city);
-	// if (lastCitySearched !== null) {
-	//     Currentweather = lastCitySearched 
-	// }
-
 	$.ajax({
 		method: "GET",
 		url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
@@ -93,7 +88,10 @@ function currentWeather(city) {
 		console.log("Wind Speed: " + response.wind.speed);
 		console.log("Humidity: " + response.main.humidity);
 		console.log("Temperature (F): " + response.main.temp);
-		console.log("<h1>" + response.name + " Weather Details</h1>");
+        console.log("<h1>" + response.name + " Weather Details</h1>");
+        
+        // for (var index = 0; index < forecastData.list.length; index += 8) {
+        // }   
 
         uv(lat, long);
         localStorage.setItem("lastCitySearched", city);
@@ -101,17 +99,26 @@ function currentWeather(city) {
 	});
 }
 
-// console.log("local storage", localStorage.getItem("currentCity"))
-
 function forecast(city) {
 
 	$.ajax({
 		method: "GET",
 		url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=e4a0807b709fd21166a9113bc8472380&units=imperial"
 	}).then(function(forecastData) {
-		console.log(forecastData);
+        console.log(forecastData);
+        var forecastDiv = $("#forecast");
 		for (var index = 0; index < forecastData.list.length; index += 8) {
-
+        console.log(forecastData.list[index]);
+        // make the forecast card
+        var cardFS = $("<div class='col-md-2 card bg-primary text-white'>");
+        var icon = $("<img>").attr("src", "http://openweathermap.org/img/w/" + forecastData.list[index].weather[0].icon + ".png");
+        cardFS.append(icon);
+        var temperature = forecastData.list[index].main.temp_max
+        cardFS.append("<p>Temp: "+ temperature + "</p>");
+        var humidity = forecastData.list[index].main.humidity
+        cardFS.append("Humidity: ", humidity)
+        // putting the cards on the page
+        forecastDiv.append(cardFS);
 		}
 	});
 }

@@ -21,26 +21,62 @@ transition: all .3s ease-in-out;
 border: black solid thin;
 }
 
-.uv {
-
-}
-
 .rowCW {
   border: thin dotted black;
   margin-left: 10rem;
   padding-bottom: 25px;
+  display: flex;
+}
+  
+.row5F {
+  margin-top: 3rem;
+  margin-left: 11rem;
+  justify-content: center;
+  display: flex;
+}
+  
+.asideB {
+  background-color: lightgray;
+  margin: 0px 5px 5px 5px;
+  border: thin black dotted;
+  display: flex;
+}
+  
+#myBtn {
+  border-radius: 5px;
+  padding: 15px 60px;
+  display: inline;
+  justify-content: left;
+  flex-wrap: wrap;
+  float: left
+  background-color: white;
+  display: flex;
+}   
+
+.uv {
+
+}
+@media only screen and (max-width: 425px) {
+/* for cell phones or smaller devices */
+.rowCW {
+  border: thin dotted black;
+  margin-left: 10rem;
+  padding-bottom: 25px;
+  display: flex;
 }
 
 .row5F {
   margin-top: 3rem;
   margin-left: 11rem;
   justify-content: center;
+  display: flex;
 }
 
 .asideB {
   background-color: lightgray;
   margin: 0px 5px 5px 5px;
   border: thin black dotted;
+  display: flex;
 }
 
 #myBtn {
@@ -51,5 +87,6 @@ border: black solid thin;
   flex-wrap: wrap;
   float: left
   background-color: white;
+  display: flex;
+}    
 }
-

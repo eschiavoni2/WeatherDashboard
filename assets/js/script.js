@@ -3,13 +3,14 @@ $(document).ready(function() {
 	// variable for my cities with an empty array
 	var cities = [];
 	// variable for lastcitysearched with an empty string
-	var lastCitySearched = "";
+    var lastCitySearched = "";
+    var lastFive = "";
 	// call functions 
 	init();
 	displayCities();
 	currentWeather();
 	currentWeather(localStorage.getItem("lastCitySearched"));
-
+    forecast(localStorage.getItem("lastFive"));
 	// function to run when loading the page
 	function init() {
 		// go get cities array from local storage
@@ -50,7 +51,8 @@ $(document).ready(function() {
 			// saving cities to local storage 
 			localStorage.setItem("cities", JSON.stringify(cities));
 			// saving lastcitysearched to local storage 
-			localStorage.setItem("lastCitySearched", JSON.stringify(cityInput));
+            localStorage.setItem("lastCitySearched", JSON.stringify(cityInput));
+            localStorage.setItem("lastFive", JSON.stringify(cityInput));
 			// calling display cities
 			displayCities();
 			// calling currentweather/forecast function with cityinput
@@ -61,7 +63,8 @@ $(document).ready(function() {
 		$("#recentSearches").on("click", function(event) {
 			var city = event.target.textContent;
 			console.log(city);
-			localStorage.setItem("lastCitySearched", city);
+            localStorage.setItem("lastCitySearched", city);
+            localStorage.setItem("lastFive", city);
 			currentWeather(city);
 		});
 	}
@@ -119,7 +122,9 @@ function forecast(city) {
         cardFS.append("Humidity: ", humidity)
         // putting the cards on the page
         forecastDiv.append(cardFS);
-		}
+        }
+        localStorage.setItem("lastFive", city);
+
 	});
 }
 

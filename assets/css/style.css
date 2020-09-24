@@ -51,9 +51,8 @@ border: black solid thin;
   display: flex;
 }   
 
-.uv {
+/* would have uv in here as well with three colors to change with the index */
 
-}
 @media only screen and (max-width: 425px) {
 /* for cell phones or smaller devices */
 .rowCW {

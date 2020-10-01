@@ -32,6 +32,7 @@ $(document).ready(function () {
             var city = cities[index];
             // appending city button in the recent searches
             $("#recentSearches").append('<p><ul><button id="myBtn">' + city + '</button></ul></p>');
+              // conditional - if =-1 don't push
         }
         // weather button on click event
         $("#weather-btn").on("click", function (event) {
@@ -48,13 +49,7 @@ $(document).ready(function () {
                 // console log cities
                 console.log(cities);
             }
-            // conditional - if =-1 don't push
-            if (lastFive.indexOf(cityInput) === -1) {
-                // push the lastfive to the screen
-                lastFive.push(cityInput);
-                // console log lastfive
-                console.log(lastFive);
-            }
+        
             // saving cities to local storage 
             localStorage.setItem("cities", JSON.stringify(cities));
             // saving lastcitysearched to local storage 
@@ -152,6 +147,7 @@ function forecast(city) {
         }
         // saving last five to local storage
         localStorage.setItem("lastFive", city);
+    
 
     });
 }
